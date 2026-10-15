@@ -6,15 +6,7 @@ O plugin do Obsidian que traz o seu diário do app Lareia para o vault: o texto 
 
 ## O que ele faz
 
-- **Os dias.** O texto do dia entra na sua daily, logo abaixo de um cabeçalho (padrão `## Lareia`), entre dois comentários invisíveis no modo de leitura:
-
-  ```markdown
-  ## Lareia
-
-  <!-- codex:2026-10-15 -->
-  O que você escreveu na Lareia hoje.
-  <!-- /codex -->
-  ```
+- **Os dias.** O texto do dia entra na sua daily, logo abaixo de um cabeçalho (padrão `## Lareia`), entre dois comentários HTML que marcam o começo e o fim do bloco, invisíveis no modo de leitura: o de abertura leva `codex:` e a data do dia, o de fechamento leva `/codex`. O que fica entre eles é escrito pelo plugin; o resto da nota é seu.
 
   O cabeçalho é ajuste; os marcadores `codex:` são o contrato com o vault e não mudam.
 
@@ -33,7 +25,7 @@ O plugin **usa a rede**: fala só com a API da Lareia (`execute-api.sa-east-1.am
 ## Como ligar
 
 1. No app Lareia: **Conta → Aparelhos → «Ligar ao Obsidian»**. Aparece um código de 8 caracteres, válido por 10 minutos e uma vez só.
-2. No Obsidian: comando **Ligar este vault (código de pareamento)**, ou o botão nos ajustes do plugin, e digite o código. Também funciona o link `obsidian://lareia-write-reflect?codigo=ABCD-EFGH`.
+2. No Obsidian: comando **Ligar este vault (código de pareamento)**, ou o botão nos ajustes do plugin, e digite o código. No mesmo aparelho, o link «Abrir no Obsidian», ao lado do código na Lareia, faz isso por você.
 3. A primeira rodada é sempre um **ensaio**: o plugin mostra o que escreveria e só grava quando você clica **Aplicar**.
 
 Uma conta liga um vault por vez. Ligar outro desliga o anterior. Nos outros aparelhos do mesmo vault, o plugin mostra «quem escreve neste vault é o Mac», e os arquivos chegam pela sincronização do próprio vault; «passar a escrever aqui» refaz o pareamento.
@@ -77,15 +69,7 @@ The Obsidian plugin that brings your Lareia journal into your vault: each day's 
 
 ### What it does
 
-- **Days.** The day's text goes into your daily note, right under a heading of your choice (default `## Lareia`), between two HTML comments that are invisible in reading view:
-
-  ```markdown
-  ## Lareia
-
-  <!-- codex:2026-10-15 -->
-  What you wrote in Lareia today.
-  <!-- /codex -->
-  ```
+- **Days.** The day's text goes into your daily note, right under a heading of your choice (default `## Lareia`), between two HTML comments that mark where the block starts and ends and are invisible in reading view: the opening one carries `codex:` and the date, the closing one carries `/codex`. What sits between them is written by the plugin; the rest of the note is yours.
 
   The heading is a setting; the `codex:` markers are the contract with the vault and don't change.
 
@@ -104,7 +88,7 @@ This plugin **uses the network**: it talks only to Lareia's API (`execute-api.sa
 ### Pairing
 
 1. In the Lareia app, go to **Conta → Aparelhos → «Ligar ao Obsidian»** to get an 8-character code (valid for 10 minutes, single use).
-2. In Obsidian, run **Link this vault (pairing code)** or use the button in the plugin settings, and type it — or open `obsidian://lareia-write-reflect?codigo=ABCD-EFGH`.
+2. In Obsidian, run **Link this vault (pairing code)** or use the button in the plugin settings, and type it. On the same device, the «Open in Obsidian» link next to the code in Lareia does it for you.
 3. The first sync after pairing is always a **dry run**: nothing is written until you click **Apply**.
 
 One account links one vault at a time; linking another unlinks the previous one. On the vault's other devices the plugin shows which device is writing, and files arrive through your own vault sync; «Write from here» pairs again.

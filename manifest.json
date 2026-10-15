@@ -1,7 +1,7 @@
 {
   "id": "lareia-write-reflect",
   "name": "Lareia Write and Reflect",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "minAppVersion": "1.11.4",
   "description": "Brings your Lareia journal into your vault: daily entries under a heading of your choice, media, mind maps and notebooks. Requires a Lareia account.",
   "author": "Yuri Braz",
