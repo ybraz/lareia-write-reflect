@@ -22,7 +22,7 @@ O plugin do Obsidian que traz o seu diário do app Lareia para o vault: o texto 
 - **A mídia.** Imagens e anexos descem para a pasta de anexos do Obsidian (ou a que você escolher) e aparecem como `![[…]]` e `[[…]]`.
 - **Os mapas.** Cada mapa da Lareia pousa como `.excalidraw.md`. **Para vê-lo desenhado, instale o plugin [Excalidraw](https://github.com/zsviczian/obsidian-excalidraw-plugin)**; sem ele, o arquivo abre como texto. Edite o mapa no app Lareia: editado no Obsidian, o plugin para de atualizá-lo e o marca `codex-divergente`.
 - **Os cadernos.** Cada caderno vira uma pasta com um arquivo por fólio e um `index.md`, **só dentro das pastas que você permitir** nos ajustes. Pasta com notas que não são da Lareia não é adotada; fólio apagado na Lareia vai para `.lixeira/` dentro do caderno — nada é apagado.
-- **O índice de títulos** (desligado por padrão). Ligado, o `[[` do editor da Lareia oferece as notas do seu vault. Isso **manda ao servidor da Lareia o nome e o caminho de todas as suas notas** (menos as pastas que você excluir e a pasta de configuração do vault).
+- **O índice de títulos** (desligado por padrão). Ligado, o `[[` do editor da Lareia oferece as notas do seu vault. Isso **manda ao servidor da Lareia o nome e o caminho de todas as suas notas** (menos as pastas que você excluir e a pasta de configuração do vault). É a única parte do plugin que percorre a lista de todos os arquivos do vault (o aviso «Vault Enumeration» da revisão da loja); sem ela ligada, o plugin só lê e escreve as notas do dia, dos cadernos e dos anexos.
 
 O plugin só puxa: ao abrir o vault, a cada 10 minutos com ele aberto, e pelo comando **Sincronizar agora**. Com o Obsidian fechado, nada pousa — o texto espera no servidor.
 
@@ -93,7 +93,7 @@ The Obsidian plugin that brings your Lareia journal into your vault: each day's 
 - **Media.** Images and attachments are downloaded to Obsidian's attachment folder (or one you pick) and embedded as `![[…]]` / `[[…]]`.
 - **Mind maps** land as `.excalidraw.md`. **Install the [Excalidraw plugin](https://github.com/zsviczian/obsidian-excalidraw-plugin) to see them drawn**; without it they open as text. Edit maps in the Lareia app: once edited in Obsidian, the plugin stops updating that file and marks it `codex-divergente`.
 - **Notebooks** become a folder with one file per page and an `index.md`, **only inside folders you allow**. Folders holding notes Lareia didn't write are never adopted; deleted pages move to `.lixeira/` inside the notebook — nothing is ever deleted.
-- **Title index** (off by default). When on, the Lareia editor's `[[` autocomplete offers your vault's notes. This **sends the name and path of every note to Lareia's server** (except the folders you exclude and the vault's configuration folder).
+- **Title index** (off by default). When on, the Lareia editor's `[[` autocomplete offers your vault's notes. This **sends the name and path of every note to Lareia's server** (except the folders you exclude and the vault's configuration folder). It is the only part of the plugin that walks the list of every file in the vault (the store review's «Vault Enumeration» note); with it off, the plugin only reads and writes the day, notebook and attachment notes.
 
 It only pulls: when the vault opens, every 10 minutes while it's open, and on **Sync now**. With Obsidian closed, nothing lands — the text waits on the server.
 

@@ -1,0 +1,57 @@
+# A release do plugin, montada e certificada pelo GitHub.
+#
+# Toda tag empurrada (a versão do manifest.json, ex.: 1.0.2) compila o plugin
+# aqui, a partir deste repositório, e publica a release com os três arquivos que
+# a loja do Obsidian lê. O main.js e o styles.css saem com um *artifact
+# attestation*: a prova assinada de que foram construídos deste código, por este
+# workflow — quem baixa confere com `gh attestation verify`.
+#
+# Lareia Write and Reflect — https://lareia.app/obsidian
+name: Release
+
+on:
+  push:
+    tags: ["*"]
+
+permissions:
+  contents: write      # criar a release
+  id-token: write      # a identidade OIDC que assina o attestation
+  attestations: write  # gravar o attestation
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+
+      - name: A tag é a versão do manifest.json
+        run: |
+          versao="$(node -p 'require("./manifest.json").version')"
+          if [ "$versao" != "$GITHUB_REF_NAME" ]; then
+            echo "a tag ($GITHUB_REF_NAME) não é a versão do manifest.json ($versao)" >&2
+            exit 1
+          fi
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Certificar o main.js e o styles.css
+        uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            main.js
+            styles.css
+
+      - name: Publicar a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes \
+            main.js manifest.json styles.css
