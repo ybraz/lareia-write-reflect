@@ -1,0 +1,17 @@
+{
+  "name": "lareia-write-reflect",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "esbuild": "0.28.2",
+    "obsidian": "1.11.4",
+    "typescript": "7.0.2"
+  },
+  "scripts": {
+    "build": "tsc --noEmit && node esbuild.config.mjs producao",
+    "dev": "node esbuild.config.mjs",
+    "tipos": "tsc --noEmit"
+  }
+}

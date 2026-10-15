@@ -1,0 +1,4 @@
+node_modules/
+# O main.js é gerado pelo esbuild e vai no *release* da loja, não no repo.
+main.js
+main.js.map
