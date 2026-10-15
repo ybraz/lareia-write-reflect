@@ -1,5 +1,5 @@
 /**
- * Lareia: Write & Reflect — o plugin do Obsidian que leva o diário da Lareia ao vault
+ * Lareia Write and Reflect — o plugin do Obsidian que leva o diário da Lareia ao vault
  * (spec 26). Aqui só se liga o `Controle` ao Obsidian: as portas, as telas,
  * os comandos, o link `obsidian://` e o relógio. A decisão mora em `casca/` e
  * em `nucleo/`, que não importam o `obsidian` e rodam fora dele.

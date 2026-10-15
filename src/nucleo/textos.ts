@@ -167,12 +167,12 @@ const pt = {
   cabecalhoDoRegistro: `---
 title: "Lareia — registro do plugin"
 tags: [codex, log]
-description: "O que o plugin Lareia: Write & Reflect escreveu no vault: uma linha por dia aplicado, deduplicada por data e versão, com as divergências e as surpresas em destaque. Rodada sem efeito não escreve nada."
+description: "O que o plugin Lareia Write and Reflect escreveu no vault: uma linha por dia aplicado, deduplicada por data e versão, com as divergências e as surpresas em destaque. Rodada sem efeito não escreve nada."
 ---
 
 # Lareia — registro do plugin
 
-> [!info] Gerado pelo plugin «Lareia: Write & Reflect». Não editar à mão.
+> [!info] Gerado pelo plugin «Lareia Write and Reflect». Não editar à mão.
 `,
 
   // ── Os motivos do núcleo (surpresas, recusas, falhas) ─────────────────
@@ -346,12 +346,12 @@ const en: Textos = {
   cabecalhoDoRegistro: `---
 title: "Lareia — plugin log"
 tags: [codex, log]
-description: "What the Lareia: Write & Reflect plugin wrote to the vault: one line per applied day, deduplicated by date and version, with divergences and surprises highlighted. A sync with no effect writes nothing."
+description: "What the Lareia Write and Reflect plugin wrote to the vault: one line per applied day, deduplicated by date and version, with divergences and surprises highlighted. A sync with no effect writes nothing."
 ---
 
 # Lareia — plugin log
 
-> [!info] Written by the «Lareia: Write & Reflect» plugin. Do not edit by hand.
+> [!info] Written by the «Lareia Write and Reflect» plugin. Do not edit by hand.
 `,
 
   blocosDoMesmoDia: (n, data) => `there are ${n} blocks for ${data} in the same file`,

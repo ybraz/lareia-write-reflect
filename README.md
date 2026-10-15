@@ -1,4 +1,4 @@
-# Lareia: Write & Reflect
+# Lareia Write and Reflect
 
 *[English below](#english)*
 
