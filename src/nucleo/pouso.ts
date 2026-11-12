@@ -32,6 +32,8 @@ export interface Folio {
   versao: number;
   versaoAplicada?: number | null;
   hashAplicado?: string | null;
+  /** Os hashes de todo corpo que o app já escreveu neste fólio (spec 26 §2, até 20; o último é o `hashAplicado`). */
+  hashesAplicados?: string[];
   arquivo?: string | null;
   palavras?: number | null;
   criadoEm?: string | null;
@@ -166,8 +168,14 @@ export async function pousarCaderno(caderno: Caderno, p: Pouso): Promise<AckDoCa
 
     const existente = await disco.lerTexto(arquivo);
     // O guarda-corpo mede o CORPO: o INGEST escreve `description` na frente.
-    if (existente !== null && f.hashAplicado) {
-      if ((await hashCorpo(corpoDe(existente))) !== f.hashAplicado) {
+    // É do app todo corpo cujo hash está em `hashesAplicados ∪ {hashAplicado}`
+    // (spec 26 §4.5, a armadilha A2, a mesma regra do dia em `reflexoes.ts`):
+    // com o vault replicado (iCloud, Obsidian Sync, Git) e numa troca de
+    // escritor, o aparelho pode ter a cópia de uma versão anterior, e o último
+    // hash acusaria divergência sem que ninguém tivesse tocado no texto.
+    const conjunto = new Set([...(f.hashesAplicados ?? []), f.hashAplicado].filter((h): h is string => !!h));
+    if (existente !== null && conjunto.size > 0) {
+      if (!conjunto.has(await hashCorpo(corpoDe(existente)))) {
         log.push(T().logFolioDivergente(nome, `${f.titulo}`));
         divergentes.push({ id: f.id, textoDoVault: corpoDe(existente) });
         continue;
